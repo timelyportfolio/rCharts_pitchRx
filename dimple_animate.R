@@ -22,13 +22,22 @@ for (i in 2:(N-1)) {
 names(frame) <- c("n", "x", "y", "z", names(other))
 
 d1 <- dPlot(
-  y~x,
+  z~x,
   groups = c("pitch_type"),
-  data = frame[which(frame$n %in% 1:4),c(1:4,30)],
+  data = frame[which(frame$n %in% 1:10),c(1:4,30)],
   type = "bubble"
 )
 d1$set(storyboard = "n")
-d1$xAxis(type = "addMeasureAxis")
+d1$xAxis(
+  type = "addMeasureAxis",
+  overrideMin = min(frame$x),
+  overrideMax = max(frame$x)
+)
+d1$xAxis(
+  type = "addMeasureAxis",
+  overrideMin = min(frame$z),
+  overrideMax = max(frame$z)
+)
 d1
 
 
