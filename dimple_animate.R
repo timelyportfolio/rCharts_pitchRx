@@ -33,7 +33,7 @@ d1$xAxis(
   overrideMin = min(frame$x),
   overrideMax = max(frame$x)
 )
-d1$xAxis(
+d1$yAxis(
   type = "addMeasureAxis",
   overrideMin = min(frame$z),
   overrideMax = max(frame$z)
