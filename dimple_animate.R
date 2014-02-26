@@ -24,10 +24,23 @@ names(frame) <- c("n", "x", "y", "z", names(other))
 d1 <- dPlot(
   y~x,
   groups = c("pitch_type"),
-  data = frame[,c(1:4,30)],
+  data = frame[which(frame$n %in% 1:4),c(1:4,30)],
   type = "bubble"
 )
 d1$set(storyboard = "n")
 d1$xAxis(type = "addMeasureAxis")
 d1
 
+
+
+require(ggvis)
+ggvis(
+  frame[which(frame$n %in% 1:20),c(1:4,12,30,13)],
+  props(
+    x = ~x,
+    y = ~z,
+    fill = ~type,
+    opacity = ~y
+  ),
+  layer_point()
+)
